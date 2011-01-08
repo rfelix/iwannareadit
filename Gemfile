@@ -17,3 +17,7 @@ group :cucumber do
   gem 'cucumber-rails'
   gem 'capybara'
 end
+
+group :deployment do
+  gem 'heroku'
+end

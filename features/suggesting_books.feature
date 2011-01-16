@@ -10,3 +10,5 @@ Feature: Suggesting Books
     And I fill in "book_authors" with "Gregory Brown"
     And I press "Suggest Book"
     Then I should see "Book has been suggested."
+    And I should be on the book page for "Ruby Best Practices"
+    And I should see "Ruby Best Practices - Books - I Wanna Read It!"

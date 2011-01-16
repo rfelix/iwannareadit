@@ -9,9 +9,13 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(params[:book])
-    @book.save
-    flash[:notice] = "Book has been suggested."
-    redirect_to @book
+    if @book.save
+      flash[:notice] = "Book has been suggested."
+      redirect_to @book
+    else
+      flash[:alert] = "No Book has been suggested."
+      render :action => "new"
+    end
   end
 
   def show

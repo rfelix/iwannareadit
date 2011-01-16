@@ -7,6 +7,12 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <% if signed_in? %>
+    <div>
+      User: <%= current_user.name %>
+    </div>
+  <% end %>
+
   <% flash.each do |key, value| %>
     <div class='flash' id='<%= key %>'>
       <%= value %>

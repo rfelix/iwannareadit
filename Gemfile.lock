@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.3)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -130,6 +131,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth (>= 4.1.1)
   capybara
   cucumber-rails
   heroku

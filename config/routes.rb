@@ -1,6 +1,9 @@
 IwannareaditRmu4::Application.routes.draw do
   root :to => "books#index"
 
+  match "/auth/:providor/callback", :to => "sessions#create"
+  match "/auth/failure", :to => "sessions#failure"
+
   resources :books
 
   # The priority is based upon order of creation:

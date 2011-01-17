@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :authenticate_user
+
   protected
 
   def current_user
@@ -16,5 +18,10 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.id
+  end
+
+  def authenticate_user
+    return if signed_in?
+    redirect_to login_path
   end
 end

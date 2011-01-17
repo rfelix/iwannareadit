@@ -4,7 +4,8 @@ Feature: Suggesting Books
   I want to easily suggest books that I think should be bought
 
   Background:
-    Given I am on the homepage
+    Given I am logged in as "John Doe"
+    And I am on the homepage
     When I follow "Suggest a Book"
 
 

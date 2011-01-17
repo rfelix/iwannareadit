@@ -2,7 +2,10 @@ IwannareaditRmu4::Application.routes.draw do
   root :to => "books#index"
 
   match "/auth/:providor/callback", :to => "sessions#create"
-  match "/auth/failure", :to => "sessions#failure"
+  match "/auth/failure", :to => "sessions#failure", :as => ''
+
+  match "/users/login", :to => "users#login", :as => "login"
+  match "/users/logout",  :to => "users#logout", :as => "logout"
 
   resources :books
 

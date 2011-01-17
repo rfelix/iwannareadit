@@ -7,6 +7,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'omniauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 
+
 # Google Apps omni-auth gave an error WEBrick::HTTPStatus::RequestURITooLarge
 # using Webrick, some say that this doesn't happen with Thin
 gem "thin"
@@ -20,6 +21,11 @@ end
 group :test, :development do
   gem "rspec-rails", "~> 2.4"
   gem 'cucumber-rails'
+end
+
+group :test, :cucumber do
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 group :cucumber do

@@ -2,6 +2,8 @@
 # http://blog.railsrumble.com/blog/2010/10/08/intridea-omniauth
 #
 class SessionsController < ApplicationController
+  before_filter :authenticate_user, :except => [:create, :failure]
+
   def create
     auth = request.env['rack.auth']
     unless @auth = Authorization.find_from_hash(auth)
@@ -12,7 +14,7 @@ class SessionsController < ApplicationController
     # Log the authorizing user in.
     self.current_user = @auth.user
 
-    render :text => "Welcome, #{self.current_user.name}."
+    redirect_to books_path
   end
 
   def failure

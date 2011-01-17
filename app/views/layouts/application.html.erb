@@ -10,6 +10,8 @@
   <% if signed_in? %>
     <div>
       User: <%= current_user.name %>
+      <br />
+      <%= link_to "Logout", logout_path %>
     </div>
   <% end %>
 

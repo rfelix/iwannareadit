@@ -6,12 +6,12 @@
   margin: 5px;
 }
 
-.flash#notice
+#notice.flash
 {
   border-color: black;
 }
 
-.flash#alert
+#alert.flash
 {
   border-color: red;
 }
@@ -24,7 +24,7 @@
   padding-right: 5px;
 }
 
-.errorExplanation h2 
+.errorExplanation h2
 {
   color: red;
 }

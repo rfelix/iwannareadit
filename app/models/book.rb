@@ -5,7 +5,6 @@ class Book < ActiveRecord::Base
   has_many :votes
 
   def vote_up(user)
-    vote = Vote.new(:direction => Vote::UP, :book => self, :user => user)
-    vote.save!
+    Vote.create(:direction => Vote::UP, :book => self, :user => user).persisted?
   end
 end

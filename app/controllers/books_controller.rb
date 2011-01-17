@@ -27,7 +27,7 @@ class BooksController < ApplicationController
     if @book.vote_up(@current_user)
       flash[:notice] = "Up Vote has been recorded."
     else
-      flash[:notice] = "You've already Up Votes this Book"
+      flash[:alert] = "You've already voted for this Book"
     end
     redirect_to @book
   end

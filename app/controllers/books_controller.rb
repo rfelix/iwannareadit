@@ -24,7 +24,7 @@ class BooksController < ApplicationController
 
   def vote_up
     @book = Book.find(params[:id])
-    if @book.vote_up(@current_user)
+    if Vote.for(@current_user, @book).up
       flash[:notice] = "Up Vote has been recorded."
     else
       flash[:alert] = "You've already up voted this Book"
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
 
   def vote_down
     @book = Book.find(params[:id])
-    if @book.vote_down(@current_user)
+    if Vote.for(@current_user, @book).down
       flash[:notice] = "Down Vote has been recorded."
     else
       flash[:alert] = "You've already down voted this Book"

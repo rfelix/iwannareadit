@@ -5,7 +5,7 @@
 <h3><%= @book.authors %></h3>
 
 <div id="votes">
-  Votes: <%= Vote.up(@book).count - Vote.down(@book).count %>
+  Votes: <%= Vote.count_for @book %>
 </div>
 
 <%= link_to "Vote Up"  ,   vote_up_book_path(@book) %>

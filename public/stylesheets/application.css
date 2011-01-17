@@ -1,0 +1,30 @@
+
+.flash
+{
+  border: 1px dotted;
+  padding: 5px;
+  margin: 5px;
+}
+
+.flash#notice
+{
+  border-color: black;
+}
+
+.flash#alert
+{
+  border-color: red;
+}
+
+.errorExplanation
+{
+  border: 1px dotted red;
+  margin: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.errorExplanation h2 
+{
+  color: red;
+}

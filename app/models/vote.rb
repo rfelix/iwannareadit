@@ -11,4 +11,7 @@ class Vote < ActiveRecord::Base
   scope :up,   where(:direction => UP)
   scope :down, where(:direction => DOWN)
 
+  scope :by_book, lambda { |book| where(:book_id => book.id) }
+  scope :by_user, lambda { |user| where(:user_id => user.id) }
+
 end

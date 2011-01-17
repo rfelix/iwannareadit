@@ -21,4 +21,14 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
   end
+
+  def vote_up
+    @book = Book.find(params[:id])
+    if @book.vote_up(@current_user)
+      flash[:notice] = "Up Vote has been recorded."
+    else
+      flash[:notice] = "You've already Up Votes this Book"
+    end
+    redirect_to @book
+  end
 end

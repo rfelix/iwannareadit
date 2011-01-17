@@ -17,5 +17,22 @@ Feature: Voting on Book Suggestions
     When I go to the book page for "Ruby Best Practices"
     And follow "Vote Up"
     And follow "Vote Up"
-    Then I should see "You've already voted for this Book"
+    Then I should see "You've already up voted this Book"
     And I should see "1" within "#votes"
+
+  Scenario: Vote down a suggestion
+    Given I am logged in as "John Doe"
+    And the book "Ruby Best Practices" by "Gregory Brown" exists
+    When I go to the book page for "Ruby Best Practices"
+    And follow "Vote Down"
+    Then I should see "Down Vote has been recorded."
+    And I should see "-1" within "#votes"
+
+  Scenario: Vote down a suggestion twice
+    Given I am logged in as "John Doe"
+    And the book "Ruby Best Practices" by "Gregory Brown" exists
+    When I go to the book page for "Ruby Best Practices"
+    And follow "Vote Down"
+    And follow "Vote Down"
+    Then I should see "You've already down voted this Book"
+    And I should see "-1" within "#votes"

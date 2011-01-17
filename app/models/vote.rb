@@ -8,6 +8,7 @@ class Vote < ActiveRecord::Base
   # A User can only have one vote for each book
   validates_uniqueness_of :book_id, :scope => :user_id
 
-  scope :up, where(:direction => UP)
+  scope :up,   where(:direction => UP)
+  scope :down, where(:direction => DOWN)
 
 end

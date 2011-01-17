@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 /doc/guides
 /doc/railsapi
+/rerun.txt

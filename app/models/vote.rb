@@ -32,12 +32,10 @@ class Vote < ActiveRecord::Base
   def up
     return false if direction == UP
     self.direction += 1
-    self.save
   end
 
   def down
     return false if direction == DOWN
     self.direction += -1
-    self.save
   end
 end

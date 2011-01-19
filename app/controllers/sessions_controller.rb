@@ -1,8 +1,13 @@
-# Code based on tutorial:
-# http://blog.railsrumble.com/blog/2010/10/08/intridea-omniauth
-#
 class SessionsController < ApplicationController
-  before_filter :authenticate_user, :except => [:create, :failure]
+  before_filter :authenticate_user, :except => [:new, :create, :failure]
+
+  def new
+    if signed_in?
+      redirect_to books_path
+    elsif request.env.include? 'rack.auth'
+      redirect_to :action => 'create'
+    end
+  end
 
   def create
     auth = request.env['rack.auth']
@@ -12,6 +17,14 @@ class SessionsController < ApplicationController
 
     self.current_user = user
     redirect_to books_path
+  end
+
+
+  def destroy
+    session[:user_id] = nil
+    @current_user     = nil
+    flash[:notice]    = "Logged out."
+    redirect_to login_path
   end
 
   def failure

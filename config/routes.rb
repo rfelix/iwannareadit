@@ -2,14 +2,14 @@ IwannareaditRmu4::Application.routes.draw do
   root :to => "books#index"
 
   match "/auth/:providor/callback", :to => "sessions#create"
-  match "/auth/failure", :to => "sessions#failure", :as => ''
+  match "/auth/failure",            :to => "sessions#failure", :as => ''
 
   resources :books
-  match "/books/:id/vote_up", :to => "books#vote_up", :as => 'vote_up_book'
+  match "/books/:id/vote_up",   :to => "books#vote_up",   :as => 'vote_up_book'
   match "/books/:id/vote_down", :to => "books#vote_down", :as => 'vote_down_book'
 
-  match "/users/login", :to => "users#login", :as => "login"
-  match "/users/logout",  :to => "users#logout", :as => "logout"
+  match "/login",   :to => "sessions#new",     :as => "login"
+  match "/logout",  :to => "sessions#destroy", :as => "logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

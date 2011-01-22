@@ -9,6 +9,14 @@ class Vote < ActiveRecord::Base
   # A User can only have one vote for each book
   validates_uniqueness_of :book_id, :scope => :user_id
 
+  validates_numericality_of :direction,
+                            :less_than_or_equal_to => 1,
+                            :message               => "You've already up voted this Book"
+
+  validates_numericality_of :direction,
+                            :greater_than_or_equal_to => -1,
+                            :message                  => "You've already down voted this Book"
+
   scope :up,   where(:direction => UP)
   scope :down, where(:direction => DOWN)
 
@@ -30,14 +38,18 @@ class Vote < ActiveRecord::Base
   end
 
   def up
-    return false if direction == UP
     self.direction += 1
-    self.save
   end
 
   def down
-    return false if direction == DOWN
     self.direction += -1
-    self.save
+  end
+
+  def can_increase?
+    self.direction < UP
+  end
+
+  def can_decrease?
+    self.direction > DOWN
   end
 end

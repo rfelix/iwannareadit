@@ -1,20 +1,30 @@
-# Code based on tutorial:
-# http://blog.railsrumble.com/blog/2010/10/08/intridea-omniauth
-#
 class SessionsController < ApplicationController
-  before_filter :authenticate_user, :except => [:create, :failure]
+  before_filter :authenticate_user, :except => [:new, :create, :failure]
+
+  def new
+    if signed_in?
+      redirect_to books_path
+    elsif request.env.include? 'rack.auth'
+      redirect_to :action => 'create'
+    end
+  end
 
   def create
     auth = request.env['rack.auth']
-    unless @auth = Authorization.find_from_hash(auth)
-      # Create a new user or add an auth to existing user, depending on
-      # whether there is already a user signed in.
-      @auth = Authorization.create_from_hash(auth, current_user)
+    unless user = User.find_from_auth_hash(auth)
+      user = User.create_from_auth_hash(auth)
     end
-    # Log the authorizing user in.
-    self.current_user = @auth.user
 
+    self.current_user = user
     redirect_to books_path
+  end
+
+
+  def destroy
+    session[:user_id] = nil
+    @current_user     = nil
+    flash[:notice]    = "Logged out."
+    redirect_to login_path
   end
 
   def failure

@@ -10,15 +10,7 @@ Feature: Voting on Book Suggestions
     And follow "Vote Up"
     Then I should see "Up Vote has been recorded."
     And I should see "1" within "#votes"
-
-  Scenario: Vote up a suggestion twice
-    Given I am logged in as "John Doe"
-    And the book "Ruby Best Practices" by "Gregory Brown" exists
-    When I go to the book page for "Ruby Best Practices"
-    And follow "Vote Up"
-    And follow "Vote Up"
-    Then I should see "You've already up voted this Book"
-    And I should see "1" within "#votes"
+    And I should not see "Vote Up" within "#votes a"
 
   Scenario: Vote down a suggestion
     Given I am logged in as "John Doe"
@@ -27,15 +19,7 @@ Feature: Voting on Book Suggestions
     And follow "Vote Down"
     Then I should see "Down Vote has been recorded."
     And I should see "-1" within "#votes"
-
-  Scenario: Vote down a suggestion twice
-    Given I am logged in as "John Doe"
-    And the book "Ruby Best Practices" by "Gregory Brown" exists
-    When I go to the book page for "Ruby Best Practices"
-    And follow "Vote Down"
-    And follow "Vote Down"
-    Then I should see "You've already down voted this Book"
-    And I should see "-1" within "#votes"
+    And I should not see "Vote Down" within "#votes a"
 
   Scenario: Vote a suggestion up, then down
     Given I am logged in as "John Doe"

@@ -20,6 +20,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @vote = Vote.for(@current_user, @book)
   end
 
 end

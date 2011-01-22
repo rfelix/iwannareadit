@@ -44,4 +44,12 @@ class Vote < ActiveRecord::Base
   def down
     self.direction += -1
   end
+
+  def can_increase?
+    self.direction < UP
+  end
+
+  def can_decrease?
+    self.direction > DOWN
+  end
 end

@@ -4,6 +4,7 @@ Feature: Loggin in/out
   I don't want people who aren't logged in to access the app
 
   Scenario: Unauthorized user access
+    Given I am not logged in
     When I go to the homepage
     Then I should be on the login page
     And I should see "Please login."

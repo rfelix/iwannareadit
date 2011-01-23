@@ -20,3 +20,27 @@
     %>
   )
 </div>
+
+<div>
+  <%= form_for [@book, @comment], :id => 'new_comment' do |f| %>
+    Add Comment
+    <%= f.error_messages %>
+    <p>
+      <%= f.text_area :body, :size => "60x5"%>
+    </p>
+
+    <%= f.submit "Add Comment" %>
+  <% end %>
+
+  <div id="comments_list">
+    Comments:
+    <table>
+      <% @book.comments.each do |comment| %>
+        <tr>
+          <td class="user"><%= comment.user.name %>: </td>
+          <td class="body"><%= comment.body %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

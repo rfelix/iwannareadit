@@ -5,9 +5,11 @@ IwannareaditRmu4::Application.routes.draw do
   match "/auth/failure",            :to => "sessions#failure", :as => ''
 
   resources :books do
+    resources :comments
     match "/votes/up",   :to => "votes#up",   :as => 'vote_up'
     match "/votes/down", :to => "votes#down", :as => 'vote_down'
   end
+
 
   match "/login",   :to => "sessions#new",     :as => "login"
   match "/logout",  :to => "sessions#destroy", :as => "logout"

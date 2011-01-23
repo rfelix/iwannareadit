@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-
+    @books = Book.find(:all).sort_by { |b| Vote.count_for(b) }.reverse
   end
 
   def new

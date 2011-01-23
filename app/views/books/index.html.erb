@@ -1,1 +1,18 @@
 <%= link_to "Suggest a Book", new_book_path %>
+
+<table>
+  <tr>
+    <th> Votes   </th>
+    <th> Book    </th>
+    <th> Authors </th>
+    <th> Actions </th>
+  </tr>
+  <% @books.each_with_index do |book, index| %>
+    <tr id="item<%= index + 1 %>">
+      <td><%= Vote.count_for book  %></td>
+      <td><%= book.name            %></td>
+      <td><%= book.authors         %></td>
+      <td><%=                      %></td>
+    </tr>
+  <% end %>
+</table>

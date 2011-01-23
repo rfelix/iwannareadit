@@ -4,6 +4,9 @@ Feature: Listing all the Books that have been suggested
   I want to be able to see all the books that were suggested
   And be able to easily vote them up or down
 
+  Background:
+    Given I am logged in as "John Doe"
+
   Scenario: List 3 suggested books
     Given the following books exist:
       | name      | authors      | votes |

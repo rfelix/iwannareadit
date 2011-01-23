@@ -14,8 +14,8 @@
       <td><%= book.authors                        %></td>
       <td>
         <%  vote = Vote.for(@current_user, book) %>
-        <%= link_to_if(vote.can_increase?, "Up",   vote_up_book_path(book))   { "Up"   } %>
-        <%= link_to_if(vote.can_decrease?, "Down", vote_down_book_path(book)) { "Down" } %>
+        <%= link_to_if(vote.can_increase?, "Up",   book_vote_up_path(book))   { "Up"   } %>
+        <%= link_to_if(vote.can_decrease?, "Down", book_vote_down_path(book)) { "Down" } %>
       </td>
     </tr>
   <% end %>

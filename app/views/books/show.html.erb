@@ -8,13 +8,13 @@
   Votes: <%= Vote.count_for @book %>
   (
     <%=
-      link_to_if @vote.can_increase?, "Vote Up", vote_up_book_path(@book) do
+      link_to_if @vote.can_increase?, "Vote Up", book_vote_up_path(@book) do
         "Vote Up"
       end
     %>
     |
     <%=
-      link_to_if @vote.can_decrease?, "Vote Down", vote_down_book_path(@book) do
+      link_to_if @vote.can_decrease?, "Vote Down", book_vote_down_path(@book) do
         "Vote Down"
       end
     %>

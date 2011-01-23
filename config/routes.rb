@@ -4,9 +4,10 @@ IwannareaditRmu4::Application.routes.draw do
   match "/auth/:providor/callback", :to => "sessions#create"
   match "/auth/failure",            :to => "sessions#failure", :as => ''
 
-  resources :books
-  match "/books/:book_id/votes/up",   :to => "votes#up", :as => 'vote_up_book'
-  match "/books/:book_id/votes/down", :to => "votes#down", :as => 'vote_down_book'
+  resources :books do
+    match "/votes/up",   :to => "votes#up",   :as => 'vote_up'
+    match "/votes/down", :to => "votes#down", :as => 'vote_down'
+  end
 
   match "/login",   :to => "sessions#new",     :as => "login"
   match "/logout",  :to => "sessions#destroy", :as => "logout"

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   validates_presence_of   :provider
   validates_uniqueness_of :uid
 
+  scope :admin,  where(:is_admin => true)
+  scope :normal, where(:is_admin => false)
+
   def self.find_from_auth_hash(hash)
     find_by_provider_and_uid hash['provider'], hash['uid']
   end

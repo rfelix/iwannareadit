@@ -22,6 +22,7 @@ Factory.define :user do |user|
   user.email    'email@example.com'
   user.provider 'google_apps'
   user.uid      { Factory.next(:user_uid) }
+  user.is_admin false
 end
 
 Factory.sequence :user_uid do |n|

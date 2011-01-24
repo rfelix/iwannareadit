@@ -25,7 +25,6 @@ Feature: Commenting on Books
     And I should see "Comment Number 2" within "#comments_list tr:nth-child(1) .body"
     And I should see "Comment Number 1" within "#comments_list tr:nth-child(2) .body"
 
-  @wip
   Scenario: Edit a comment
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists
@@ -33,7 +32,7 @@ Feature: Commenting on Books
     When I go to the book page for "Ruby Best Practices"
     And I follow "Edit"
     And I fill in "comment_body" with "This was edited man"
-    And I press "Edit Comment"
+    And I press "Save Changes"
     Then I should see "Comment successfully edited."
     And I should see "This was edited man"
 

@@ -17,9 +17,20 @@ class CommentsController < ApplicationController
     end
   end
 
-  #def edit
-  #  @comment = Commend.find(params[:id])
-  #end
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(params[:comment])
+      flash[:notice] = "Comment successfully edited."
+      redirect_to @comment.book
+    else
+      flash[:notice] = "Error in saving comment."
+      render :action => 'edit'
+    end
+  end
 
   def destroy
     c = Comment.find(params[:id])

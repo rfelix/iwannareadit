@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :votes
+  has_many :comments
 
   validates_presence_of   :provider
   validates_uniqueness_of :uid

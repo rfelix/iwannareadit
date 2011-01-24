@@ -8,15 +8,45 @@
   Votes: <%= Vote.count_for @book %>
   (
     <%=
-      link_to_if @vote.can_increase?, "Vote Up", vote_up_book_path(@book) do
+      link_to_if @vote.can_increase?, "Vote Up", book_vote_up_path(@book) do
         "Vote Up"
       end
     %>
     |
     <%=
-      link_to_if @vote.can_decrease?, "Vote Down", vote_down_book_path(@book) do
+      link_to_if @vote.can_decrease?, "Vote Down", book_vote_down_path(@book) do
         "Vote Down"
       end
     %>
   )
+</div>
+
+<div>
+  <%= form_for [@book, @comment], :id => 'new_comment' do |f| %>
+    Add Comment
+    <%= f.error_messages %>
+    <p>
+      <%= f.text_area :body, :size => "60x5"%>
+    </p>
+
+    <%= f.submit "Add Comment" %>
+  <% end %>
+
+  <div id="comments_list">
+    Comments:
+    <table>
+      <% @book.comments.each do |comment| %>
+        <tr>
+          <td class="user"><%= comment.user.name %>: </td>
+          <td class="body"><%= comment.body      %>  </td>
+          <td>
+            (
+            <%= link_to "Edit", edit_book_comment_path(@book, comment) %>
+            <%= link_to "Delete", book_comment_path(@book ,comment), :method => :delete, :confirm => "Are you sure you want to delete the comment?" %>
+            )
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

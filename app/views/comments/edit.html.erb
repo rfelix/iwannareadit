@@ -1,0 +1,10 @@
+<%= form_for [@comment.book, @comment] do |f| %>
+  <%= f.error_messages %>
+  <p>
+  Comment: <br />
+  <%= f.text_area :body, :size => "60x5"%>
+  </p>
+  <%= f.submit "Save Changes" %>
+  |
+  <%= link_to "Cancel", book_path(@comment.book) %>
+<% end %>

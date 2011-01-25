@@ -29,4 +29,15 @@ class BooksController < ApplicationController
     end
   end
 
+  def mark_bought
+    @book = Book.find(params[:book_id])
+    @book.is_bought = true
+    if @book.save
+      flash[:notice] = "Book has been marked as bought."
+      redirect_to @book
+    else
+      flash[:alert] = "Error in marking book as bought."
+      render :action => 'show'
+    end
+  end
 end

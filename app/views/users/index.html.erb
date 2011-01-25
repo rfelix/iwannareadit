@@ -1,0 +1,40 @@
+<h1> Users </h1>
+
+<h2> Admin Users </h2>
+<table id="admin_users_listing">
+  <tr>
+    <th>Name   </th>
+    <th>E-mail </th>
+    <th>Actions</th>
+  </tr>
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.name %></td>
+      <td><%= admin.email %></td>
+      <td>
+        <% unless admin == @current_user %>
+          <%= link_to "Demote to Normal", user_demote_path(admin) %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+
+<h2> Normal Users </h2>
+<table id="users_listing">
+  <tr>
+    <th>Name   </th>
+    <th>E-mail </th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td>
+        <%= link_to "Promote to Admin", user_promote_path(user) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

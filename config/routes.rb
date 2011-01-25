@@ -15,6 +15,8 @@ IwannareaditRmu4::Application.routes.draw do
   match "/logout",  :to => "sessions#destroy", :as => "logout"
 
   match "/users", :to => "users#index", :as => "users"
+  match "/users/:id/promote", :to => "users#promote", :as => "user_promote"
+  match "/users/:id/demote", :to => "users#demote", :as => "user_demote"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

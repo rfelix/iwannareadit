@@ -24,4 +24,15 @@ class ApplicationController < ActionController::Base
     return if signed_in?
     redirect_to login_path
   end
+
+  def is_admin?
+    self.current_user && self.current_user.is_admin
+  end
+
+  def limit_to_admin
+    return if is_admin?
+    flash[:alert] = "You're not an admin user."
+    redirect_to "/"
+  end
+
 end

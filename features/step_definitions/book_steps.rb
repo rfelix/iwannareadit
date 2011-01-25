@@ -14,6 +14,12 @@ Given /^the following books exist:$/ do |table|
   end
 end
 
+Given /^the book "([^"]*)" is marked as bought$/ do |book_name|
+  book = Book.find_by_name(book_name)
+  book.is_bought = true
+  book.save!
+end
+
 Then /^I should see the following books:$/ do |table|
   table.hashes.each do |hash|
     Then %Q{I should see "#{hash[:name]}" within "tr#item#{hash[:position]}"}

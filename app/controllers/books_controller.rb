@@ -30,13 +30,23 @@ class BooksController < ApplicationController
   end
 
   def mark_bought
+    toggle_bought(true)
+  end
+
+  def unmark_bought
+    toggle_bought(false)
+  end
+
+  private
+
+  def toggle_bought(bought)
     @book = Book.find(params[:book_id])
-    @book.is_bought = true
+    @book.is_bought = bought
     if @book.save
-      flash[:notice] = "Book has been marked as bought."
+      flash[:notice] = "Book has been #{bought ? "" : "un"}marked as bought."
       redirect_to @book
     else
-      flash[:alert] = "Error in marking book as bought."
+      flash[:alert] = "Error in marking book as #{bought ? "" : "un"}bought."
       render :action => 'show'
     end
   end

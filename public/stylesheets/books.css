@@ -1,9 +1,16 @@
-#votes
-{
-  margin-bottom: 10px;
-}
-
 #books_list
 {
   margin-top: 15px;
 }
+
+#book_status
+{
+  font-size: 14px;
+}
+
+#votes
+{
+  margin-bottom: 15px;
+  margin-top   : 15px;
+}
+

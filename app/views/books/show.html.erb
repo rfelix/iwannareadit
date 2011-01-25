@@ -16,7 +16,9 @@
 
 <%=
   link_to_if is_admin? && !@book.is_bought, "Mark as Bought", book_mark_as_bought_path(@book) do
-    ""
+    link_to_if is_admin?, "Unmark as Bought", book_unmark_as_bought_path(@book) do
+      ""
+    end
   end
 %>
 

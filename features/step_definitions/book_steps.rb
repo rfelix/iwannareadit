@@ -2,9 +2,10 @@ Given /^the book "([^"]*)" by "([^"]*)" exists$/ do |name, authors|
   Factory(:book, :name => name, :authors => authors)
 end
 
-Given /^the following books exist:$/ do |table|
+Given /^the following( bought)? books exist:$/ do |bought, table|
   table.hashes.each do |hash|
     book = Given %Q{the book "#{hash[:name]}" by "#{hash[:authors]}" exists}
+    Given %Q{the book "#{hash[:name]}" is marked as bought} if bought.present?
     hash[:votes].to_i.times do |i|
       user = Factory.create(:user)
       vote = Vote.for(user, book)

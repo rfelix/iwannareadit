@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the book page for "([^\"]*)"/
       book_path(Book.find_by_name!($1))
 
+    when /the bought books page/
+      bought_books_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
@@ -26,7 +29,7 @@ module NavigationHelpers
         path_components = $1.split(/\s+/)
         self.send(path_components.push('path').join('_').to_sym)
       rescue Object => e
-        raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
+        raise "Can't find mapping from \"#{page_name}\" to a path (#{path_components.join('_').to_sym}).\n" +
           "Now, go and add a mapping in #{__FILE__}"
       end
     end

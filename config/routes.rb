@@ -4,6 +4,7 @@ IwannareaditRmu4::Application.routes.draw do
   match "/auth/:providor/callback", :to => "sessions#create"
   match "/auth/failure",            :to => "sessions#failure", :as => ''
 
+  match "/books/bought", :to => "books#bought", :as => "bought_books"
   resources :books do
     resources :comments
     match "/votes/up",   :to => "votes#up",   :as => 'vote_up'

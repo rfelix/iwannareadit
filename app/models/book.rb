@@ -5,6 +5,9 @@ class Book < ActiveRecord::Base
   validates :name, :presence => true
   validates :authors, :presence => true
 
+  scope :not_bought, where(:is_bought => false)
+  scope :bought, where(:is_bought => true)
+
   alias_method :_original_comments, :comments
   def comments
     _original_comments.reverse

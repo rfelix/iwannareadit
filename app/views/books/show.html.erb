@@ -1,8 +1,26 @@
 <% title(@book.name, 'Books') %>
 
-<h2><%= @book.name %></h2>
+<h2>
+  <%= @book.name %>
+  <span id="book_status">
+    <% if @book.is_bought %>
+      (Bought)
+    <% else %>
+      (Suggested)
+    <% end %>
+  </span>
+</h2>
 
 <h3><%= @book.authors %></h3>
+
+
+<%=
+  link_to_if is_admin? && !@book.is_bought, "Mark as Bought", book_mark_as_bought_path(@book) do
+    link_to_if is_admin?, "Unmark as Bought", book_unmark_as_bought_path(@book) do
+      ""
+    end
+  end
+%>
 
 <div id="votes">
   Votes: <%= Vote.count_for @book %>

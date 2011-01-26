@@ -8,6 +8,8 @@ IwannareaditRmu4::Application.routes.draw do
     resources :comments
     match "/votes/up",   :to => "votes#up",   :as => 'vote_up'
     match "/votes/down", :to => "votes#down", :as => 'vote_down'
+    match "/mark_bought", :to => "books#mark_bought", :as => 'mark_as_bought'
+    match "/unmark_bought", :to => "books#unmark_bought", :as => 'unmark_as_bought'
   end
 
 

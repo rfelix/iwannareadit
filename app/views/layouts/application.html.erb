@@ -18,6 +18,10 @@
       |
       <%= link_to "Bought Books", bought_books_path %>
       |
+      <% if is_admin? %>
+        <%= link_to "Users", users_path %>
+        |
+      <% end %>
     </div>
   <% end %>
 

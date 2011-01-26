@@ -18,7 +18,6 @@ Feature: Mark a book as bought
     And the book "Ruby Best Practices" is marked as bought
     When I go to the book page for "Ruby Best Practices"
     And follow "Unmark as Bought"
-    Then show me the page
     Then I should see "Book has been unmarked as bought."
     And I should not see "Unmark as Bought"
     And I should not see "(Bought)"

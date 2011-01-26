@@ -11,6 +11,14 @@
     <div>
       User: <%= current_user.name %> (<%= link_to "Logout", logout_path %>)
     </div>
+
+    <div id="navigation">
+      |
+      <%= link_to "Suggested Books", books_path %>
+      |
+      <%= link_to "Bought Books", bought_books_path %>
+      |
+    </div>
   <% end %>
 
   <% flash.each do |key, value| %>

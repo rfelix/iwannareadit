@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def bought
-    @books = Book.bought.all
+    @books = Book.bought
     render :action => 'index'
   end
 
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book has been suggested."
       redirect_to @book
     else
-      flash[:alert] = "No Book has been suggested."
+      flash.now[:alert] = "No Book has been suggested."
       render :action => "new"
     end
   end
@@ -51,7 +51,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book has been #{bought ? "" : "un"}marked as bought."
       redirect_to @book
     else
-      flash[:alert] = "Error in marking book as #{bought ? "" : "un"}bought."
+      flash.now[:alert] = "Error in marking book as #{bought ? "" : "un"}bought."
       render :action => 'show'
     end
   end

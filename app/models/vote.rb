@@ -9,6 +9,7 @@ class Vote < ActiveRecord::Base
   # A User can only have one vote for each book
   validates_uniqueness_of :book_id, :scope => :user_id
 
+  validates_numericality_of :direction, :only_integer => true
   validates_numericality_of :direction,
                             :less_than_or_equal_to => 1,
                             :message               => "You've already up voted this Book"

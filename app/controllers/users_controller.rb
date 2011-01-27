@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_filter :limit_to_admin
 
   def index
-    @admins = User.admin.all
-    @users  = User.normal.all
+    @admins = User.admin
+    @users  = User.normal
   end
 
   def promote

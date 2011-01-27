@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment successfully edited."
       redirect_to @comment.book
     else
-      flash[:notice] = "Error in saving comment."
+      flash.now[:notice] = "Error in saving comment."
       render :action => 'edit'
     end
   end

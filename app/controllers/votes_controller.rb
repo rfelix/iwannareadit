@@ -1,10 +1,10 @@
 class VotesController < ApplicationController
   def up
-    make_vote Vote::UP
+    make_vote :up
   end
 
   def down
-    make_vote Vote::DOWN
+    make_vote :down
   end
 
   private
@@ -12,10 +12,9 @@ class VotesController < ApplicationController
   def make_vote(direction)
     @book = Book.find(params[:book_id])
     vote  = Vote.for(@current_user, @book)
-    direction == Vote::UP ? vote.up : vote.down
+    vote.send direction
     if vote.save
-      direction_str = direction == Vote::UP ? "Up" : "Down"
-      flash[:notice] = "#{direction_str} Vote has been recorded."
+      flash[:notice] = "#{direction.to_s.capitalize} Vote has been recorded."
     else
       flash[:alert]  = vote.errors[:direction]
     end

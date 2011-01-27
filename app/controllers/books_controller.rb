@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def bought
-    @books = Book.bought.all
+    @books = Book.bought
     render :action => 'index'
   end
 

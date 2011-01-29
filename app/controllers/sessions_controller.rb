@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :authenticate_user, :except => [:new, :create, :failure]
+  skip_before_filter :authenticate_user, :except => [:destroy]
 
   def new
     if signed_in?

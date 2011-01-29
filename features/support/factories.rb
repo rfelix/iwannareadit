@@ -1,5 +1,11 @@
-Factory.sequence :author_name do |n|
-  "Author #{n}"
+Factory.define :author do |author|
+  author.first_name  "James"
+  author.middle_name { Factory.next(:author_middle_name) }
+  author.last_name   "Doe"
+end
+
+Factory.sequence :author_middle_name do |n|
+  "The #{n}"
 end
 
 Factory.sequence :book_name do |n|
@@ -7,8 +13,8 @@ Factory.sequence :book_name do |n|
 end
 
 Factory.define :book do |book|
-  book.name    { Factory.next(:book_name)   }
-  book.authors { Factory.next(:author_name) }
+  book.name { Factory.next(:book_name)   }
+  book.association :authors
 end
 
 Factory.define :comment do |comment|

@@ -6,6 +6,7 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :authors
 
   validates :name, :presence => true
+  validates_presence_of :authors
 
   scope :not_bought, where(:is_bought => false)
   scope :bought, where(:is_bought => true)

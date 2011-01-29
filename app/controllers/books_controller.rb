@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    remove_empty_authors_from_params
     @book = Book.new(params[:book])
     if @book.save
       flash[:notice] = "Book has been suggested."
@@ -55,5 +56,15 @@ class BooksController < ApplicationController
       flash.now[:alert] = "Error in marking book as #{bought ? "" : "un"}bought."
       render :action => 'show'
     end
+  end
+
+  def remove_empty_authors_from_params
+    cleanup = {}
+    params['book']['authors_attributes'].each do |k, author|
+      cleanup[k] = author unless author['full_name'].split.blank?
+    end
+    # If everything is empty then we will just leave things as is
+    # so that the user can then fill in the information
+    params['book']['authors_attributes'] = cleanup unless cleanup.empty?
   end
 end

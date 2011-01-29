@@ -8,7 +8,7 @@
     <th> Actions </th>
   </tr>
   <% @books.each_with_index do |book, index| %>
-    <tr id="item<%= index + 1 %>">
+    <tr>
       <td><%= Vote.count_for book                 %></td>
       <td><%= link_to book.name, book_path(book)  %></td>
       <td><%= book.authors                        %></td>

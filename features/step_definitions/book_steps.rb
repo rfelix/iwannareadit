@@ -23,6 +23,7 @@ end
 
 Then /^I should see the following books:$/ do |table|
   table.hashes.each do |hash|
-    Then %Q{I should see "#{hash[:name]}" within "tr#item#{hash[:position]}"}
+    # The +1 offset is due to the table headers in HTML
+    Then %Q{I should see "#{hash[:name]}" within "tr:nth-child(#{hash[:position].to_i + 1})"}
   end
 end

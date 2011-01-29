@@ -8,15 +8,10 @@
     <th> Actions </th>
   </tr>
   <% @books.each_with_index do |book, index| %>
-    <tr>
-      <td><%= Vote.count_for book                 %></td>
-      <td><%= link_to book.name, book_path(book)  %></td>
-      <td><%= authors_names(book)                 %></td>
-      <td>
-        <%  vote = Vote.for(@current_user, book) %>
-        <%= link_to_if(vote.can_increase?, "Up",   book_vote_up_path(book))   { "Up"   } %>
-        <%= link_to_if(vote.can_decrease?, "Down", book_vote_down_path(book)) { "Down" } %>
-      </td>
-    </tr>
+    <%=
+      book_type = "suggested"
+      book_type = "bought" if book.is_bought?
+      render "#{book_type}_book", :book => book
+    %>
   <% end %>
 </table>

@@ -7,12 +7,13 @@ IwannareaditRmu4::Application.routes.draw do
   match "/books/bought", :to => "books#bought", :as => "bought_books"
   resources :books do
     resources :comments
+    resources :reservations, :only => [:create]
+
     match "/votes/up",   :to => "votes#up",   :as => 'vote_up'
     match "/votes/down", :to => "votes#down", :as => 'vote_down'
     match "/mark_bought", :to => "books#mark_bought", :as => 'mark_as_bought'
     match "/unmark_bought", :to => "books#unmark_bought", :as => 'unmark_as_bought'
   end
-
 
   match "/login",   :to => "sessions#new",     :as => "login"
   match "/logout",  :to => "sessions#destroy", :as => "logout"

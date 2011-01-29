@@ -1,0 +1,9 @@
+<% # Expected partial parameters: book %>
+<tr>
+  <td></td>
+  <td><%= link_to book.name, book_path(book)  %></td>
+  <td><%= authors_names(book)                 %></td>
+  <td>
+    <%= link_to "Reserve", book_reservations_path(book), :method => 'post' %>
+  </td>
+</tr>

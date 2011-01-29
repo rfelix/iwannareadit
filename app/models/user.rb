@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
+  has_many :reservations
 
   validates_presence_of   :provider
   validates_uniqueness_of :uid

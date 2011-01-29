@@ -31,6 +31,13 @@ Given /^the book "([^"]*)" is marked as bought$/ do |book_name|
   book.save!
 end
 
+Given /^the book "([^"]*)" is reserved by "([^"]*)"$/ do |book_name, user|
+  book = Book.find_by_name(book_name)
+  user = User.find_by_name(user)
+  reservation = Reservation.new(:book => book, :user => user)
+  reservation.save!
+end
+
 Then /^I should see the following books:$/ do |table|
   table.hashes.each do |hash|
     # The +1 offset is due to the table headers in HTML

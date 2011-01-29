@@ -22,6 +22,8 @@ IwannareaditRmu4::Application.routes.draw do
   match "/users/:id/promote", :to => "users#promote", :as => "user_promote"
   match "/users/:id/demote", :to => "users#demote", :as => "user_demote"
 
+  resources :reservations, :only => [:index]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

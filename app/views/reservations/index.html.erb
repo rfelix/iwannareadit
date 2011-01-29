@@ -1,0 +1,15 @@
+<table id="books_list">
+  <tr>
+    <th> Votes   </th>
+    <th> Book    </th>
+    <th> Authors </th>
+    <th> Actions </th>
+  </tr>
+  <% @books.each_with_index do |book, index| %>
+    <%=
+      book_type = "suggested"
+      book_type = "bought" if book.is_bought?
+      render "books/#{book_type}_book", :book => book
+    %>
+  <% end %>
+</table>

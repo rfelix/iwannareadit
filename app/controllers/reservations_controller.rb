@@ -1,4 +1,8 @@
 class ReservationsController < ApplicationController
+  def index
+    @books = @current_user.reservations.map(&:book)
+  end
+
   def create
     book = Book.find(params[:book_id])
     reservation = Reservation.new(:user => @current_user, :book => book)

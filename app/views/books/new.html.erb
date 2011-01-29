@@ -5,10 +5,15 @@
     <%= f.label :name, "Book's Name"%>
     <%= f.text_field :name %>
   </p>
-  <p>
-    <%= f.label :authors %>
-    <%= f.text_field :authors %>
-  </p>
+
+  <div id="book_authors">
+    Author Names:
+    <%= f.fields_for :authors do |f_a| %>
+      <p>
+        <%= f_a.text_field :full_name %>
+      </p>
+    <% end %>
+  </div>
 
   <%= f.submit "Suggest Book" %>
 <% end %>

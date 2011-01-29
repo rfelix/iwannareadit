@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @book.authors = [Author.new, Author.new, Author.new]
   end
 
   def create

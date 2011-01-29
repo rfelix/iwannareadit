@@ -11,7 +11,7 @@
     <tr>
       <td><%= Vote.count_for book                 %></td>
       <td><%= link_to book.name, book_path(book)  %></td>
-      <td><%= book.authors                        %></td>
+      <td><%= authors_names(book)                 %></td>
       <td>
         <%  vote = Vote.for(@current_user, book) %>
         <%= link_to_if(vote.can_increase?, "Up",   book_vote_up_path(book))   { "Up"   } %>

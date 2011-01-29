@@ -10,11 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110125101518) do
+ActiveRecord::Schema.define(:version => 20110129160509) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "authors_books", :id => false, :force => true do |t|
+    t.integer "author_id"
+    t.integer "book_id"
+  end
 
   create_table "books", :force => true do |t|
     t.string   "name"
-    t.string   "authors"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_bought",  :default => false

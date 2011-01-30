@@ -11,4 +11,8 @@ class Book < ActiveRecord::Base
 
   scope :not_bought, where(:is_bought => false)
   scope :bought, where(:is_bought => true)
+
+  def reserved_by?(user)
+    !!reservations.find_by_user_id(user)
+  end
 end

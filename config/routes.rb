@@ -7,7 +7,7 @@ IwannareaditRmu4::Application.routes.draw do
   match "/books/bought", :to => "books#bought", :as => "bought_books"
   resources :books do
     resources :comments
-    resources :reservations, :only => [:create]
+    resources :reservations, :only => [:create, :destroy]
 
     match "/votes/up",   :to => "votes#up",   :as => 'vote_up'
     match "/votes/down", :to => "votes#down", :as => 'vote_down'

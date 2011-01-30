@@ -11,6 +11,16 @@ Feature: Book reservations
     And I follow "Reserve"
     Then I should see "The book has successfully been reserved"
 
+  Scenario: Releasing a book reservation
+    Given I am logged in as "John Doe"
+    And the book "Ruby Best Practices" by "Gregory Brown" exists
+    And the book "Ruby Best Practices" is marked as bought
+    And the book "Ruby Best Practices" is reserved by "John Doe"
+    When I go to the bought books page
+    And I follow "Release"
+    And I go to the reservations page
+    Then I should not see "Ruby Best Practices"
+
   Scenario: Listing a users book reservations
     Given I am logged in as "John Doe"
     And the following bought books exist:

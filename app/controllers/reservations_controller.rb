@@ -13,4 +13,12 @@ class ReservationsController < ApplicationController
     end
     redirect_to :back
   end
+
+  def destroy
+    book = Book.find(params[:book_id])
+    reservation = Reservation.for(:user => @current_user, :book => book)
+    reservation.destroy
+    flash[:notice] = "Your reservation has been released."
+    redirect_to :back
+  end
 end

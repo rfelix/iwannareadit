@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
-  has_many :reservations
+  has_many :reservations, :order => "reservations.created_at asc", :conditions => ["reservations.status != ?", Reservation::CHECKED_IN]
 
   validates_presence_of   :provider
   validates_uniqueness_of :uid

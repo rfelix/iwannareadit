@@ -23,3 +23,17 @@ Feature: Book reservations
     When I go to the reservations page
     Then I should see "Book 2"
     Then I should see "Book 3"
+
+  Scenario: Listing all reservations for a book
+    Given I am logged in as "John Doe"
+    And a user with name "Jane Doe"
+    And a user with name "Frank Doe"
+    And the book "Ruby Best Practices" by "Gregory Brown" exists
+    And the book "Ruby Best Practices" is marked as bought
+    And the book "Ruby Best Practices" is reserved by "John Doe"
+    And the book "Ruby Best Practices" is reserved by "Jane Doe"
+    And the book "Ruby Best Practices" is reserved by "Frank Doe"
+    When I go to the book page for "Ruby Best Practices"
+    Then I should see "John Doe" within "#reservations_list"
+    Then I should see "Jane Doe" within "#reservations_list"
+    Then I should see "Frank Doe" within "#reservations_list"

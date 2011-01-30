@@ -39,6 +39,15 @@
   )
 </div>
 
+<div id="reservations_list">
+  Reservations:
+  <ul>
+    <% @book.reservations.each do |reservation| %>
+      <li> <%= reservation.user.name %> </li>
+    <% end %>
+  </ul>
+</div>
+
 <div>
   <%= form_for [@book, @comment], :id => 'new_comment' do |f| %>
     Add Comment

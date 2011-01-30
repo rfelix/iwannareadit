@@ -89,6 +89,7 @@ GEM
     mime-types (1.16)
     multi_json (0.0.5)
     multipart-post (1.1.0)
+    mysql2 (0.2.6)
     net-ldap (0.1.1)
     nokogiri (1.4.4)
     oa-basic (0.1.6)
@@ -196,6 +197,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   heroku
+  mysql2
   oa-openid
   omniauth
   rails (= 3.0.3)

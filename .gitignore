@@ -5,3 +5,4 @@ tmp/**/*
 /doc/guides
 /doc/railsapi
 /rerun.txt
+config/database.yml

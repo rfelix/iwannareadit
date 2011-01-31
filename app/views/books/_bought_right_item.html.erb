@@ -2,12 +2,12 @@
 
 <div class="actions">
   <%=
-    unless book.reserved_by?(@current_user)
+    if !book.reserved_by?(@current_user)
       link_to "Reserve",
         book_reservations_path(book),
         :method => 'post',
         :class => 'button'
-    else
+    elsif !book.is_checked_out?
       link_to "Release",
         book_reservation_path(
           book,

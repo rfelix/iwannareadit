@@ -16,7 +16,7 @@
   %>
 
   <%=
-    if book.reserved_by?(@current_user)
+    if book.reserved_by?(@current_user) && !book.is_checked_out?
       link_to "Release",
           book_reservation_path(
             book,

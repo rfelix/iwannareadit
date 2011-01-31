@@ -39,6 +39,30 @@
   )
 </div>
 
+<div id="reservations_list">
+  Reservations:
+  <ul>
+    <% @book.reservations.each do |reservation| %>
+      <li>
+        <%= reservation.user.name %>
+        <% if reservation.user == @current_user %>
+          (
+          <%=
+            link_to "Release",
+              book_reservation_path(
+                @book,
+                Reservation.for(:book => @book, :user => @current_user)
+              ),
+              :method => 'delete',
+              :confirm => 'Are you sure you want to give up your reservation?'
+            %>
+          )
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 <div>
   <%= form_for [@book, @comment], :id => 'new_comment' do |f| %>
     Add Comment

@@ -7,12 +7,16 @@ IwannareaditRmu4::Application.routes.draw do
   match "/books/bought", :to => "books#bought", :as => "bought_books"
   resources :books do
     resources :comments
+    resources :reservations, :only => [:create, :destroy] do
+      put "check_out", :singular => true
+      put "check_in",  :singular => true
+    end
+
     match "/votes/up",   :to => "votes#up",   :as => 'vote_up'
     match "/votes/down", :to => "votes#down", :as => 'vote_down'
     match "/mark_bought", :to => "books#mark_bought", :as => 'mark_as_bought'
     match "/unmark_bought", :to => "books#unmark_bought", :as => 'unmark_as_bought'
   end
-
 
   match "/login",   :to => "sessions#new",     :as => "login"
   match "/logout",  :to => "sessions#destroy", :as => "logout"
@@ -20,6 +24,8 @@ IwannareaditRmu4::Application.routes.draw do
   match "/users", :to => "users#index", :as => "users"
   match "/users/:id/promote", :to => "users#promote", :as => "user_promote"
   match "/users/:id/demote", :to => "users#demote", :as => "user_demote"
+
+  resources :reservations, :only => [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

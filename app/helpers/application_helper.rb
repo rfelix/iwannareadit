@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def current_tab(*name_array)
-    "current" if name_array.any? { |n| request.request_uri == n }
+    "current" if name_array.any? { |n| request.fullpath == n }
   end
 end

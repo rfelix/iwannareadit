@@ -62,10 +62,22 @@ ul#navigation li a.current:active {
 #logo h1{
   font-size: 200%;
 }
+
+#logo a:link,
+#logo a:visited,
+#logo a:hover,
+#logo a:active {
+  color: black;
+  text-decoration: none;
+}
 /**** General ****/
 
 body {
   font-family: Helvetica, Arial, sans-serif;
+}
+
+#content {
+  margin-top: 10px;
 }
 
 a:link,
@@ -74,6 +86,14 @@ a:hover,
 a:active {
   color: #FF4800;
   text-decoration: none;
+}
+
+#content ul,
+#content ol {
+  margin: 1em 1em 1em 2em;
+}
+#content li {
+  margin: 0.5em 0;
 }
 
 .button {
@@ -107,15 +127,14 @@ a.button:hover {
 }
 
 .flash {
-  border: 1px dotted;
-  padding: 5px;
-  margin: 5px;
+  margin: 5px 4px 10px -10px;
+  padding: 7px 10px 7px 10px;
 }
 
 #alert.flash {
-  border-color: red;
+  background-color: #FF1A08;
 }
 
 #notice.flash {
-  border-color: black;
+  background-color: #EDE4B7;
 }

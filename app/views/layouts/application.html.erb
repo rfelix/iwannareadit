@@ -23,7 +23,7 @@
     <% end %>
 
     <div id="logo" class="grid_12">
-      <h1> I Wanna Read It! </h1>
+      <h1><%= link_to "I Wanna Read It!", root_path %></h1>
     </div>
     <div id="clear"></div>
 
@@ -39,13 +39,19 @@
       <div id="clear"></div>
     <% end %>
 
-    <% flash.each do |key, value| %>
-      <div class='flash' id='<%= key %>'>
-        <%= value %>
-      </div>
-    <% end %>
+    <div class="grid_12">
+      <% flash.each do |key, value| %>
+        <div class='flash' id='<%= key %>'>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+    <div id="clear"></div>
 
+    <div id="content" class="grid_12">
     <%= yield %>
+    </div>
+    <div id="clear"></div>
   </div>
 </body>
 </html>

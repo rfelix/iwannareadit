@@ -20,31 +20,31 @@
   margin-left: -17px;
 }
 
-.book_suggestion {
+.book_item {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
-.book_suggestion div {
+.book_item div {
   float: left;
   height: 40px;
   margin-right: 5px;
 }
 
-.book_suggestion .voting {
+.book_item .voting {
   margin-left: 10px;
   padding-top: 10px;
   text-align: center
 }
 
-.book_suggestion .name {
+.book_item .name {
   margin-top: 2px;
   font-size: 170%;
   display:block;
   float: left;
 }
 
-.book_suggestion .authors {
+.book_item .authors {
   margin-top: 5px;
   display:block;
   float: left;
@@ -67,11 +67,11 @@
   font-size: 60%;
 }
 
-.book_suggestion .info {
+.book_item .info {
   clear:right;
 }
 
-.book_suggestion .actions {
+.book_item .actions {
   float: right;
   padding-top: 17px;
 }

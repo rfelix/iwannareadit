@@ -1,12 +1,15 @@
 <% # Expected partial parameters: book %>
-
-<div class="book_suggestion grid_12 alpha">
-
-  <%=
+<%
+  book_type ||= nil # This is an optional partial parameter
+  if book_type.blank?
     book_type = "suggested"
     book_type = "bought" if book.is_bought?
-    render "#{book_type}_left_item", :book => book
-  %>
+  end
+%>
+
+<div class="book_item grid_12 alpha">
+
+  <%= render "#{book_type}_left_item", :book => book %>
 
   <div class="info">
     <%= link_to book.name, book_path(book), :class => "name" %>

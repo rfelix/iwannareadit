@@ -113,6 +113,19 @@ a.button:hover {
   color: grey;
 }
 
+.red_button {
+  background-color: #FF1A08;
+}
+
+.green_button {
+  background-color: #4D792E;
+}
+
+a.green_button:hover,
+a.red_button:hover {
+  color: black;
+}
+
 .box {
   display:block;
   width: 40px;

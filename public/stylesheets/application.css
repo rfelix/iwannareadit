@@ -88,6 +88,15 @@ a:active {
   text-decoration: none;
 }
 
+body h2, body h3 {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body h2 { font-size: 180%; }
+body h3 { font-size: 140%; }
+
 #content ul,
 #content ol {
   margin: 1em 1em 1em 2em;

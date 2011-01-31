@@ -44,29 +44,28 @@ ul#navigation li a.current:active {
   border-width: 1px 1px 0;
 }
 
+#navigation span {
+  margin-left: 9px;
+}
+
 #topbar {
   padding: 2px;
   margin: 3px;
   background-color: #E0E0E0;
-  font-size: small;
+  font-size: 70%;
 }
 
-.right {
-  text-align: right;
+#topbar span {
+  float: right;
 }
 
+#logo h1{
+  font-size: 200%;
+}
 /**** General ****/
 
 body {
   font-family: Helvetica, Arial, sans-serif;
-}
-
-#main ul,
-#main ol {
-  margin: 1em 1em 1em 2em;
-}
-#main li {
-  margin: 0.5em 0;
 }
 
 a:link,
@@ -77,6 +76,22 @@ a:active {
   text-decoration: none;
 }
 
+.button {
+  padding: 3px 7px 3px 7px;
+  margin: 2px;
+  width: 100%;
+  background-color: #181718;
+}
+
+a.button:link,
+a.button:visited,
+a.button:active {
+  color: white;
+  text-decoration: none;
+}
+a.button:hover {
+  color: grey;
+}
 
 /**** Rails Specific ****/
 

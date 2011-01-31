@@ -9,22 +9,34 @@
 <body>
   <div id="#main" class="container_12">
     <% if signed_in? %>
-      <div id="topbar" class="grid_12 left">
-        <div class="grid_4">
-          Hello, <%= current_user.name %>
-        </div>
-        <div class="prefix_6 right">
+      <div id="topbar" class=grid_12"">
+        Hello, <%= current_user.name %>
+
+        <span>
           <% if is_admin? %>
             <%= link_to "User Administration", users_path %> |
           <% end %>
           <%= link_to "Logout", logout_path %>
-        </div>
+        </span>
       </div>
+      <div id="clear"></div>
+    <% end %>
+
+    <div id="logo" class="grid_12">
+      <h1> I Wanna Read It! </h1>
+    </div>
+    <div id="clear"></div>
+
+    <% if signed_in? %>
       <ul id="navigation" class="grid_12">
+        <span>
+          <%= link_to "Suggest a Book", new_book_path, :class => 'button' %>
+        <span>
         <li><%= link_to "My Reservations", reservations_path, :class => current_tab('/reservations') %></li>
         <li><%= link_to "Library", bought_books_path, :class => current_tab('/books/bought') %></li>
         <li><%= link_to "Suggestions", books_path, :class => current_tab('/books', '/') %></li>
       </ul>
+      <div id="clear"></div>
     <% end %>
 
     <% flash.each do |key, value| %>

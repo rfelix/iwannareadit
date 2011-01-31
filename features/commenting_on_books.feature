@@ -21,9 +21,10 @@ Feature: Commenting on Books
     And press "Add Comment"
     And fill in "comment_body" with "Comment Number 2"
     And press "Add Comment"
+    Then show me the page
     Then I should see "Comment added."
-    And I should see "Comment Number 2" within "#comments_list tr:nth-child(1) .body"
-    And I should see "Comment Number 1" within "#comments_list tr:nth-child(2) .body"
+    And I should see "Comment Number 1" within "#comments_list tr:nth-child(1) .body"
+    And I should see "Comment Number 2" within "#comments_list tr:nth-child(2) .body"
 
   Scenario: Edit a comment
     Given I am logged in as "John Doe"
@@ -36,6 +37,7 @@ Feature: Commenting on Books
     Then I should see "Comment successfully edited."
     And I should see "This was edited man"
 
+  @wip
   Scenario: Delete a comment
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists

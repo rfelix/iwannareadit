@@ -13,7 +13,6 @@ Feature: Checkin books in and out
     Then I should see "You have now checked out the book"
     And I should not see "Check out"
 
-  @wip
   Scenario: Checking in 1 book
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists

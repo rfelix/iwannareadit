@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
   has_many :votes
-  has_many :comments, :order => "comments.created_at desc"
+  has_many :comments
   has_many :reservations, :order => "reservations.created_at asc", :conditions => ["reservations.status != ?", Reservation::CHECKED_IN]
   has_and_belongs_to_many :authors
 

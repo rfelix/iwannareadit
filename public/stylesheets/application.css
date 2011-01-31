@@ -1,19 +1,10 @@
-
-.flash
-{
-  border: 1px dotted;
-  padding: 5px;
-  margin: 5px;
-}
-
-#notice.flash
-{
-  border-color: black;
-}
-
 #alert.flash
 {
   border-color: red;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .errorExplanation
@@ -29,8 +20,34 @@
   color: red;
 }
 
+.flash
+{
+  border: 1px dotted;
+  padding: 5px;
+  margin: 5px;
+}
+
+.right
+{
+  text-align: right;
+}
+
+#notice.flash
+{
+  border-color: black;
+}
+
 #navigation
 {
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+#topbar
+{
+  padding: 2px;
+  margin: 3px;
+  margin-top: -10px;
+  background-color: #E0E0E0;
+  font-size: small;
 }

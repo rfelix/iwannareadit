@@ -159,3 +159,32 @@ ul#reservations_list {
   margin-right: 6px;
 }
 
+/**** Adding Book suggestions ****/
+
+#new_book .label {
+  float: left;
+}
+
+#new_book .name {
+  clear: both;
+}
+
+#new_book .label {
+  width: 100px;
+  text-align: right;
+  padding-top: 7px;
+}
+
+#new_book input[type=text] {
+  font-size: 120%;
+  border: 1px solid #AFAFAF;
+}
+
+#new_book .actions {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+#new_book .field.rest {
+  padding-left: 100px;
+}

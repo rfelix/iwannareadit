@@ -1,10 +1,4 @@
-<table id="books_list">
-  <tr>
-    <th> Votes   </th>
-    <th> Book    </th>
-    <th> Authors </th>
-    <th> Actions </th>
-  </tr>
+<div id="books_list" class="grid_12">
   <% @books.each_with_index do |book, index| %>
     <%=
       book_type = "suggested"
@@ -12,4 +6,5 @@
       render "#{book_type}_book", :book => book
     %>
   <% end %>
-</table>
+</div>
+<div class="clear"></div>

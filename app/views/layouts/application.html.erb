@@ -7,27 +7,24 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div class="container_12">
+  <div id="#main" class="container_12">
     <% if signed_in? %>
       <div id="topbar" class="grid_12 left">
         <div class="grid_4">
-          Hello, <%= current_user.name %> (<%= link_to "Logout", logout_path %>)
+          Hello, <%= current_user.name %>
         </div>
         <div class="prefix_6 right">
           <% if is_admin? %>
-            <%= link_to "User Administration", users_path %>
+            <%= link_to "User Administration", users_path %> |
           <% end %>
+          <%= link_to "Logout", logout_path %>
         </div>
-
       </div>
-
-      <div id="navigation">
-        <%= link_to "Suggested Books", books_path %>
-        |
-        <%= link_to "Bought Books", bought_books_path %>
-        |
-        <%= link_to "My Reservations", reservations_path %>
-      </div>
+      <ul id="navigation" class="grid_12">
+        <li><%= link_to "My Reservations", reservations_path, :class => current_tab('/reservations') %></li>
+        <li><%= link_to "Library", bought_books_path, :class => current_tab('/books/bought') %></li>
+        <li><%= link_to "Suggestions", books_path, :class => current_tab('/books', '/') %></li>
+      </ul>
     <% end %>
 
     <% flash.each do |key, value| %>

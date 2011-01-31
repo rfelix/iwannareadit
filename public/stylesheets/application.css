@@ -1,14 +1,52 @@
 /**** Header ****/
 
-#navigation {
-  margin-bottom: 10px;
-  margin-top: 10px;
+ul#navigation {
+  list-style-type: none;
+  margin: 16px 0 10px 0;
+  border-bottom: 1px solid #aaa;
+  padding-right: 5px;
+}
+
+ul#navigation li {
+  float: right;
+  margin: 0;
+}
+
+ul#navigation li span,
+ul#navigation li a {
+  display: block;
+  padding: 6px 16px 4px;
+  margin: 0 3px -1px;
+  background: #fff;
+}
+
+ul#navigation li a:link,
+ul#navigation li a:visited,
+ul#navigation li a:hover,
+ul#navigation li a:active {
+  text-decoration: none;
+  color: #555;
+  background: #eee;
+  border-bottom: 1px solid #aaa;
+}
+
+ul#navigation li a:hover {
+  background: #ddd;
+  color: #333;
+}
+
+ul#navigation li a.current:link,
+ul#navigation li a.current:visited,
+ul#navigation li a.current:hover,
+ul#navigation li a.current:active {
+  background: #fff;
+  border: 1px solid #aaa;
+  border-width: 1px 1px 0;
 }
 
 #topbar {
   padding: 2px;
   margin: 3px;
-  margin-top: -10px;
   background-color: #E0E0E0;
   font-size: small;
 }
@@ -22,6 +60,25 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
+
+#main ul,
+#main ol {
+  margin: 1em 1em 1em 2em;
+}
+#main li {
+  margin: 0.5em 0;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #FF4800;
+  text-decoration: none;
+}
+
+
+/**** Rails Specific ****/
 
 .errorExplanation {
   border: 1px dotted red;

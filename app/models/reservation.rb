@@ -24,6 +24,16 @@ class Reservation < ActiveRecord::Base
     where("user_id = ? and book_id = ?", args[:user], args[:book]).first
   end
 
+  def self.in_front_count_for(args)
+    raise ArgumentError, "Hash args needs :user and :book keys" unless [:user, :book].all? { |k| args.include?(k) }
+    count = 0
+    args[:book].reservations.each do |reservation|
+      break if reservation.user == args[:user]
+      count += 1
+    end
+    count
+  end
+
   def check_out
     self.status = CHECKED_OUT
   end
@@ -39,6 +49,7 @@ class Reservation < ActiveRecord::Base
   def is_checked_in?
     self.status == CHECKED_IN
   end
+
 
   private
 

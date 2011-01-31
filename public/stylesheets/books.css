@@ -1,8 +1,3 @@
-#books_list
-{
-  margin-top: 15px;
-}
-
 #book_status
 {
   font-size: 14px;
@@ -14,3 +9,182 @@
   margin-top   : 15px;
 }
 
+/**** Book Suggestions Listing ****/
+
+.vote_box {
+  background-color: #BFBFBF;
+}
+
+#books_list .grid_12 {
+  border-bottom: 1px dotted #BFBFBF;
+  margin-left: -17px;
+}
+
+.book_item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.book_item div {
+  float: left;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.book_item .voting {
+  margin-left: 10px;
+  padding-top: 10px;
+  text-align: center
+}
+
+.book_item .name {
+  margin-top: 2px;
+  font-size: 170%;
+  display:block;
+  float: left;
+}
+
+.book_item .authors {
+  margin-top: 5px;
+  display:block;
+  float: left;
+}
+
+/**** Bought Books Listing ****/
+.in_front_box {
+  background-color: #3F3F3F;
+  color: white;
+}
+.in_front_box .text {
+  font-size: 60%;
+}
+
+.queued_box {
+  color: #B7A533;
+}
+
+.queued_box .text {
+  font-size: 60%;
+}
+
+.book_item .info {
+  clear:right;
+}
+
+.book_item .actions {
+  float: right;
+  padding-top: 17px;
+}
+
+
+/**** Show Book Info ****/
+
+#book_info {
+  margin-left: -5px;
+  border-bottom: 1px solid #272624;
+  margin-bottom: 20px;
+}
+
+#book_info .voting {
+  float: left;
+  text-align: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#book_data .name {
+  float: left;
+  font-size: 170%;
+  margin-bottom: 8px;
+}
+
+#book_data .authors {
+  font-size: 70%;
+}
+
+#book_info .status {
+  color: #AFAFAF;
+  font-size: 80%;
+  float: right;
+}
+
+#book_info .actions {
+  clear: both;
+  padding-top: 10px;
+  margin-left: 50px;
+}
+
+#book_info .footer {
+  padding-top: 20px;
+  padding-bottom: 3px;
+}
+
+.footer #reservations {
+  text-align: right;
+}
+
+#comments {
+}
+
+#comments .comment_item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #AFAFAF;
+}
+
+#comments .header {
+  color: #AFAFAF;
+  margin-bottom: 15px;
+}
+
+#comments .user {
+  font-style: italic;
+  color: black;
+}
+
+#comments .body {
+  margin-left: 20px;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+#comments .actions {
+  text-align: right;
+  font-size: 70%;
+}
+
+ul#reservations_list {
+  margin-top: -10px;
+  list-style-type: none;
+  text-align: right;
+  margin-right: 6px;
+}
+
+/**** Adding Book suggestions ****/
+
+#new_book .label {
+  float: left;
+}
+
+#new_book .name {
+  clear: both;
+}
+
+#new_book .label {
+  width: 100px;
+  text-align: right;
+  padding-top: 7px;
+}
+
+#new_book input[type=text] {
+  font-size: 120%;
+  border: 1px solid #AFAFAF;
+}
+
+#new_book .actions {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+#new_book .field.rest {
+  padding-left: 100px;
+}

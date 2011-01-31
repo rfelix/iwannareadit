@@ -1,0 +1,45 @@
+.users_listing {
+  margin-top: 20px;
+}
+
+.users_listing table {
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  width: 400;
+}
+
+.users_listing th {
+  padding: 0 0.5em;
+  text-align: left;
+}
+
+.users_listing tr.yellow td {
+  border-top: 1px solid #FB7A31;
+  border-bottom: 1px solid #FB7A31;
+  background: #EDE4B7;
+}
+
+.users_listing td {
+  border-bottom: 1px solid #CCC;
+  padding: 0 0.5em;
+}
+
+.users_listing td:first-child {
+  width: 190px;
+}
+
+.users_listing td+td {
+  border-left: 1px solid #CCC;
+  text-align: center;
+}
+
+.users_listing td.name {
+  width: 430px;
+}
+.users_listing td.email {
+  width: 250px;
+}
+.users_listing td.actions {
+  width: 200px;
+}
+

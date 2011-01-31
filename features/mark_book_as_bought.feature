@@ -10,7 +10,7 @@ Feature: Mark a book as bought
     And follow "Mark as Bought"
     Then I should see "Book has been marked as bought."
     And I should not see "Mark as Bought"
-    And I should see "(Bought)"
+    And I should see "Bought"
 
   Scenario: Unmarking a book as bought
     Given I am logged in as admin "John Doe"
@@ -20,7 +20,7 @@ Feature: Mark a book as bought
     And follow "Unmark as Bought"
     Then I should see "Book has been unmarked as bought."
     And I should not see "Unmark as Bought"
-    And I should not see "(Bought)"
+    And I should not see "Bought"
 
   Scenario: Only admins can mark a book as bought
     Given I am logged in as "John Doe"

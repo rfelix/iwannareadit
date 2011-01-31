@@ -7,35 +7,35 @@ Feature: Voting on Book Suggestions
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists
     When I go to the book page for "Ruby Best Practices"
-    And follow "Vote Up"
+    And follow "Up"
     Then I should see "Up Vote has been recorded."
-    And I should see "1" within "#votes"
-    And I should not see "Vote Up" within "#votes a"
+    And I should see "1" within ".voting"
+    And I should not see "Up" within ".voting a"
 
   Scenario: Vote down a suggestion
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists
     When I go to the book page for "Ruby Best Practices"
-    And follow "Vote Down"
+    And follow "Down"
     Then I should see "Down Vote has been recorded."
-    And I should see "-1" within "#votes"
-    And I should not see "Vote Down" within "#votes a"
+    And I should see "-1" within ".voting"
+    And I should not see "Down" within ".voting a"
 
   Scenario: Vote a suggestion up, then down
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists
     When I go to the book page for "Ruby Best Practices"
-    And follow "Vote Up"
-    And follow "Vote Down"
+    And follow "Up"
+    And follow "Down"
     Then I should see "Down Vote has been recorded."
-    And I should see "0" within "#votes"
+    And I should see "0" within ".voting"
 
   Scenario: Vote a suggestion down, then up
     Given I am logged in as "John Doe"
     And the book "Ruby Best Practices" by "Gregory Brown" exists
     When I go to the book page for "Ruby Best Practices"
-    And follow "Vote Down"
-    And follow "Vote Up"
+    And follow "Down"
+    And follow "Up"
     Then I should see "Up Vote has been recorded."
-    And I should see "0" within "#votes"
+    And I should see "0" within ".voting"
 

@@ -1,13 +1,6 @@
-<table id="books_list">
-  <tr>
-    <th> Votes   </th>
-    <th> Book    </th>
-    <th> Authors </th>
-    <th> Actions </th>
-  </tr>
+<div id="books_list" class="grid_12">
   <% @books.each_with_index do |book, index| %>
-    <%=
-      render "reserved_book", :book => book
-    %>
+    <%= render "books/book_item", :book => book, :book_type => "reserved"  %>
   <% end %>
-</table>
+</div>
+<div class="clear"></div>

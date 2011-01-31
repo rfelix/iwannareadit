@@ -7,33 +7,51 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <% if signed_in? %>
-    <div>
-      User: <%= current_user.name %> (<%= link_to "Logout", logout_path %>)
-    </div>
+  <div id="#main" class="container_12">
+    <% if signed_in? %>
+      <div id="topbar" class=grid_12"">
+        Hello, <%= current_user.name %>
 
-    <div id="navigation">
-      |
-      <%= link_to "Suggested Books", books_path %>
-      |
-      <%= link_to "Bought Books", bought_books_path %>
-      |
-      <%= link_to "My Reservations", reservations_path %>
-      |
-      <% if is_admin? %>
-        <%= link_to "Users", users_path %>
-        |
+        <span>
+          <% if is_admin? %>
+            <%= link_to "User Administration", users_path %> |
+          <% end %>
+          <%= link_to "Logout", logout_path %>
+        </span>
+      </div>
+      <div id="clear"></div>
+    <% end %>
+
+    <div id="logo" class="grid_12">
+      <h1><%= link_to "I Wanna Read It!", root_path %></h1>
+    </div>
+    <div id="clear"></div>
+
+    <% if signed_in? %>
+      <ul id="navigation" class="grid_12">
+        <span>
+          <%= link_to "Suggest a Book", new_book_path, :class => 'button' %>
+        <span>
+        <li><%= link_to "My Reservations", reservations_path, :class => current_tab('/reservations') %></li>
+        <li><%= link_to "Library", bought_books_path, :class => current_tab('/books/bought') %></li>
+        <li><%= link_to "Suggestions", books_path, :class => current_tab('/books', '/') %></li>
+      </ul>
+      <div id="clear"></div>
+    <% end %>
+
+    <div class="grid_12">
+      <% flash.each do |key, value| %>
+        <div class='flash' id='<%= key %>'>
+          <%= value %>
+        </div>
       <% end %>
     </div>
-  <% end %>
+    <div id="clear"></div>
 
-  <% flash.each do |key, value| %>
-    <div class='flash' id='<%= key %>'>
-      <%= value %>
+    <div id="content" class="grid_12">
+    <%= yield %>
     </div>
-  <% end %>
-
-<%= yield %>
-
+    <div id="clear"></div>
+  </div>
 </body>
 </html>

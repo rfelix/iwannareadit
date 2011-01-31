@@ -1,36 +1,178 @@
+/**** Header ****/
 
-.flash
-{
-  border: 1px dotted;
-  padding: 5px;
-  margin: 5px;
+ul#navigation {
+  list-style-type: none;
+  margin: 16px 0 10px 0;
+  border-bottom: 1px solid #aaa;
+  padding-right: 5px;
 }
 
-#notice.flash
-{
-  border-color: black;
+ul#navigation li {
+  float: right;
+  margin: 0;
 }
 
-#alert.flash
-{
-  border-color: red;
+ul#navigation li span,
+ul#navigation li a {
+  display: block;
+  padding: 6px 16px 4px;
+  margin: 0 3px -1px;
+  background: #fff;
 }
 
-.errorExplanation
-{
+ul#navigation li a:link,
+ul#navigation li a:visited,
+ul#navigation li a:hover,
+ul#navigation li a:active {
+  text-decoration: none;
+  color: #555;
+  background: #eee;
+  border-bottom: 1px solid #aaa;
+}
+
+ul#navigation li a:hover {
+  background: #ddd;
+  color: #333;
+}
+
+ul#navigation li a.current:link,
+ul#navigation li a.current:visited,
+ul#navigation li a.current:hover,
+ul#navigation li a.current:active {
+  background: #fff;
+  border: 1px solid #aaa;
+  border-width: 1px 1px 0;
+}
+
+#navigation span {
+  margin-left: 9px;
+}
+
+#topbar {
+  padding: 2px;
+  margin: 3px;
+  background-color: #E0E0E0;
+  font-size: 70%;
+}
+
+#topbar span {
+  float: right;
+}
+
+#logo h1{
+  font-size: 200%;
+}
+
+#logo a:link,
+#logo a:visited,
+#logo a:hover,
+#logo a:active {
+  color: black;
+  text-decoration: none;
+}
+/**** General ****/
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#content {
+  margin-top: 10px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #FF4800;
+  text-decoration: none;
+}
+
+body h2, body h3 {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body h2 { font-size: 180%; }
+body h3 { font-size: 140%; }
+
+#content ul,
+#content ol {
+  margin: 1em 1em 1em 2em;
+}
+#content li {
+  margin: 0.5em 0;
+}
+
+.button {
+  padding: 3px 7px 3px 7px;
+  margin: 2px;
+  width: 100%;
+  background-color: #181718;
+}
+
+a.button:link,
+a.button:visited,
+a.button:active {
+  color: white;
+  text-decoration: none;
+}
+a.button:hover {
+  color: grey;
+}
+
+.red_button {
+  background-color: #FF1A08;
+}
+
+.green_button {
+  background-color: #4D792E;
+}
+
+a.green_button:hover,
+a.red_button:hover {
+  color: black;
+}
+
+.box {
+  display:block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 8px 5px 5px 5px;
+  vertical-align: center;
+  font-size: 130%;
+}
+
+.box .text {
+  display: block;
+  font-size: 65%;
+}
+
+
+/**** Rails Specific ****/
+
+.errorExplanation {
   border: 1px dotted red;
   margin: 5px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.errorExplanation h2
-{
+.errorExplanation h2 {
   color: red;
 }
 
-#navigation
-{
-  margin-bottom: 10px;
-  margin-top: 10px;
+.flash {
+  margin: 5px 4px 10px -10px;
+  padding: 7px 10px 7px 10px;
+}
+
+#alert.flash {
+  background-color: #FF1A08;
+}
+
+#notice.flash {
+  background-color: #EDE4B7;
 }

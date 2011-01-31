@@ -16,7 +16,7 @@ class VotesController < ApplicationController
     if vote.save
       flash[:notice] = "#{direction.to_s.capitalize} Vote has been recorded."
     else
-      flash[:alert]  = vote.errors[:direction]
+      flash[:alert]  = vote.errors[:direction].to_sentence
     end
     redirect_to :back
   end

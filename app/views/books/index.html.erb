@@ -1,17 +1,6 @@
-<%= link_to "Suggest a Book", new_book_path %>
-
-<table id="books_list">
-  <tr>
-    <th> Votes   </th>
-    <th> Book    </th>
-    <th> Authors </th>
-    <th> Actions </th>
-  </tr>
+<div id="books_list" class="grid_12">
   <% @books.each_with_index do |book, index| %>
-    <%=
-      book_type = "suggested"
-      book_type = "bought" if book.is_bought?
-      render "#{book_type}_book", :book => book
-    %>
+    <%= render "book_item", :book => book  %>
   <% end %>
-</table>
+</div>
+<div class="clear"></div>

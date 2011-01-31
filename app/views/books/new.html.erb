@@ -1,11 +1,31 @@
-<%= form_for @book do |f| %>
+<h2>New Book Suggestion</h2>
+<%= form_for @book, :class => "new_book" do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name, "Book's Name"%>
-    <%= f.text_field :name %>
-  </p>
+  <div class="name">
+    <div class="label"><%= f.label :name, "Book Name:"%></div>
+    <div class="field"><%= f.text_field :name, :size => 60 %></div>
+  </div>
 
+  <div class="authors">
+    <div class="label"> Author(s): </div>
+    <% rest_css_class = nil %>
+    <%= f.fields_for :authors do |f_a| %>
+      <div class="field <%= rest_css_class.presence %>">
+        <%= f_a.text_field :full_name %>
+      </div>
+      <% rest_css_class ||= "rest" %>
+    <% end %>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Suggest Book" %>
+    |
+    <%= link_to "Cancel", books_path %>
+  </div>
+
+<!--
   <div id="book_authors">
     Author Names:
     <%= f.fields_for :authors do |f_a| %>
@@ -14,6 +34,6 @@
       </p>
     <% end %>
   </div>
+-->
 
-  <%= f.submit "Suggest Book" %>
 <% end %>

@@ -27,14 +27,14 @@ Feature: Listing all the Books that have been suggested
       | Book 2    | author2      | 3     |
     When I go to the books page
     # Vote up book 1 which is the last in list
-    And I follow "Up" within "tr:nth-child(3)"
+    And I follow "Up" within ".book_item:nth-child(2)"
     # Vote down book 2 is the first in list
-    And I follow "Down" within "tr:nth-child(2)"
+    And I follow "Down" within ".book_item:nth-child(1)"
     Then I should see the following books:
       | position | name    |
       | 1        | Book 1  |
       | 2        | Book 2  |
-    And I should not see "Up" within "tr:nth-child(3) a"
-    And I should not see "Down" within "tr:nth-child(2) a"
+    And I should not see "Up" within ".book_item:nth-child(2) a"
+    And I should not see "Down" within ".book_item:nth-child(1) a"
 
 

@@ -1,0 +1,25 @@
+<% # Accepts users as partial parameter %>
+
+<table>
+  <tr class="yellow">
+    <td>Name   </th>
+    <td>E-mail </th>
+    <td>Actions</th>
+  </tr>
+  <% users.each do |user| %>
+    <tr>
+      <td class="name"><%= user.name %></td>
+      <td class="email"><%= user.email %></td>
+      <td class="actions">
+        <%=
+          if user.is_admin? && user != @current_user
+            link_to "Demote to Normal", user_demote_path(user)
+          elsif !user.is_admin?
+            link_to "Promote to Admin", user_promote_path(user)
+          end
+        %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

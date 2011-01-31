@@ -47,10 +47,10 @@ class Vote < ActiveRecord::Base
   end
 
   def can_increase?
-    self.direction < UP
+    !self.book.is_bought? && self.direction < UP
   end
 
   def can_decrease?
-    self.direction > DOWN
+    !self.book.is_bought? && self.direction > DOWN
   end
 end

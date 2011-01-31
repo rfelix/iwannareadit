@@ -7,8 +7,8 @@ Feature: Admin Users
     Given I am logged in as admin "John Doe"
     And a user with name "Jane Doe"
     When I go to the users page
-    Then I should see "John Doe" within "#admin_users_listing"
-    And I should see "Jane Doe" within "#users_listing"
+    Then I should see "John Doe" within "#admin.users_listing"
+    And I should see "Jane Doe" within "#normal.users_listing"
 
   Scenario: Listing can only be seen by admin users
     Given I am logged in as "John Doe"
@@ -20,19 +20,19 @@ Feature: Admin Users
     Given I am logged in as admin "John Doe"
     And a user with name "Jane Doe"
     When I go to the users page
-    And I follow "Promote to Admin" within "#users_listing"
+    And I follow "Promote to Admin" within "#normal.users_listing"
     Then I should see "Promoted user."
-    And I should see "Jane Doe" within "#admin_users_listing"
+    And I should see "Jane Doe" within "#admin.users_listing"
 
   Scenario: Demote admin user to normal
     Given I am logged in as admin "John Doe"
     And an admin user with name "Jane Doe"
     When I go to the users page
-    And I follow "Demote to Normal" within "#admin_users_listing tr:nth-child(3)"
+    And I follow "Demote to Normal" within "#admin.users_listing tr:nth-child(3)"
     Then I should see "Demoted user."
-    And I should see "Jane Doe" within "#users_listing"
+    And I should see "Jane Doe" within "#normal.users_listing"
 
   Scenario: Admin can't demote themselves
     Given I am logged in as admin "John Doe"
     When I go to the users page
-    Then I should not see "Demote to Normal" within "#admin_users_listing"
+    Then I should not see "Demote to Normal" within "#admin.users_listing"

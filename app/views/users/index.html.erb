@@ -1,12 +1,12 @@
 <h2> User Administration </h2>
 
-<div class="users_listing">
+<div id="admin" class="users_listing">
   <h3> Admin Users </h3>
   <%= render 'user_listing', :users => @admins %>
 </div>
 
 
-<div class="users_listing">
+<div id="normal" class="users_listing">
   <h3> Normal Users </h3>
   <%= render 'user_listing', :users => @users %>
 </div>

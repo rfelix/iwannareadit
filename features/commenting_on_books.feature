@@ -10,8 +10,8 @@ Feature: Commenting on Books
     And fill in "comment_body" with "This is a great book!"
     And press "Add Comment"
     Then I should see "Comment added."
-    And I should see "This is a great book!" within "#comments_list .body"
-    And I should see "John Doe" within "#comments_list tr:nth-child(1) .user"
+    And I should see "This is a great book!" within "#comments .body"
+    And I should see "John Doe" within "#comments div:nth-child(1) .user"
 
   Scenario: Two comments listed from most recent at the top
     Given I am logged in as "John Doe"
@@ -23,8 +23,8 @@ Feature: Commenting on Books
     And press "Add Comment"
     Then show me the page
     Then I should see "Comment added."
-    And I should see "Comment Number 1" within "#comments_list tr:nth-child(1) .body"
-    And I should see "Comment Number 2" within "#comments_list tr:nth-child(2) .body"
+    And I should see "Comment Number 1" within "#comments div:nth-child(1) .body"
+    And I should see "Comment Number 2" within "#comments div:nth-child(2) .body"
 
   Scenario: Edit a comment
     Given I am logged in as "John Doe"

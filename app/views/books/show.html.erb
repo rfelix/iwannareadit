@@ -1,94 +1,94 @@
 <% title(@book.name, 'Books') %>
 
-<h2>
-  <%= @book.name %>
-  <span id="book_status">
-    <% if @book.is_bought %>
-      (Bought)
-    <% else %>
-      (Suggested)
-    <% end %>
-  </span>
-</h2>
 
-<h3><%= authors_names(@book) %></h3>
+<div id="book_info" class="grid_12">
+  <div class="voting">
+    <%= link_to_if(@vote.can_increase?, "Up",   book_vote_up_path(@book),   :class => "vote_up") { "Up"} %>
+    <br />
+    <span id="vote_count">
+      <%= Vote.count_for @book %>
+    </span>
+    <br />
+    <%= link_to_if(@vote.can_decrease?, "Down", book_vote_down_path(@book), :class => "vote_down") { "Down" } %>
+  </div>
 
+  <div id="book_data">
+    <div class="name">
+      <%= @book.name %>
+      <br />
+      <span class="authors"><%= authors_names(@book) %></span>
+    </div>
+    <div class="status">
+      <% if @book.is_bought %>
+        Bought
+      <% else %>
+        Suggested
+      <% end %>
+    </div>
+  </div>
 
-<%=
-  link_to_if is_admin? && !@book.is_bought, "Mark as Bought", book_mark_as_bought_path(@book) do
-    link_to_if is_admin?, "Unmark as Bought", book_unmark_as_bought_path(@book) do
-      ""
-    end
-  end
-%>
-
-<div id="votes">
-  Votes: <%= Vote.count_for @book %>
-  (
+  <div class="actions">
     <%=
-      link_to_if @vote.can_increase?, "Vote Up", book_vote_up_path(@book) do
-        "Vote Up"
+      link_to_if is_admin? && !@book.is_bought, "Mark as Bought", book_mark_as_bought_path(@book), :class => "button" do
+        link_to_if is_admin? && @book.reservations.count == 0, "Unmark as Bought", book_unmark_as_bought_path(@book), :class => "button" do
+          ""
+        end
       end
     %>
-    |
-    <%=
-      link_to_if @vote.can_decrease?, "Vote Down", book_vote_down_path(@book) do
-        "Vote Down"
-      end
-    %>
-  )
+  </div>
+
+  <div class="footer">
+    <div class="grid_9 alpha">
+      <%= @book.comments.count %> Comments
+    </div>
+    <div id="reservations" class="grid_3 omega">
+      <%= @book.reservations.count.to_s + " Reservations" if @book.is_bought? %>
+    </div>
+  </div>
 </div>
 
-<div id="reservations_list">
-  Reservations:
-  <ul>
+<div class="clear"></div>
+
+<div id="comments" class="grid_9 alpha">
+  <% @book.comments.each do |comment| %>
+    <div class="comment_item">
+      <div class="header">
+        <span class="user"><%= comment.user.name %></span>
+        said <%= distance_of_time_in_words_to_now comment.created_at %> ago
+      </div>
+      <div class="body">
+        <%= comment.body %>
+      </div>
+      <div class="actions">
+        <%= link_to "Edit", edit_book_comment_path(@book, comment) %>
+        |
+        <%= link_to "Delete", book_comment_path(@book ,comment), :method => :delete, :confirm => "Are you sure you want to delete the comment?" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for [@book, @comment], :id => 'new' do |f| %>
+    New Comment
+    <%= f.error_messages %>
+    <p>
+    <%= f.text_area :body, :size => "60x5"%>
+    </p>
+
+    <%= f.submit "Add Comment" %>
+  <% end %>
+</div>
+
+
+
+<div class="grid_3 omega">
+  <ul id="reservations_list">
     <% @book.reservations.each do |reservation| %>
       <li>
         <%= reservation.user.name %>
-        <% if reservation.user == @current_user %>
-          (
-          <%=
-            link_to "Release",
-              book_reservation_path(
-                @book,
-                Reservation.for(:book => @book, :user => @current_user)
-              ),
-              :method => 'delete',
-              :confirm => 'Are you sure you want to give up your reservation?'
-            %>
-          )
-        <% end %>
       </li>
     <% end %>
   </ul>
 </div>
 
-<div>
-  <%= form_for [@book, @comment], :id => 'new_comment' do |f| %>
-    Add Comment
-    <%= f.error_messages %>
-    <p>
-      <%= f.text_area :body, :size => "60x5"%>
-    </p>
+<div class="clear"></div>
 
-    <%= f.submit "Add Comment" %>
-  <% end %>
-
-  <div id="comments_list">
-    Comments:
-    <table>
-      <% @book.comments.each do |comment| %>
-        <tr>
-          <td class="user"><%= comment.user.name %>: </td>
-          <td class="body"><%= comment.body      %>  </td>
-          <td>
-            (
-            <%= link_to "Edit", edit_book_comment_path(@book, comment) %>
-            <%= link_to "Delete", book_comment_path(@book ,comment), :method => :delete, :confirm => "Are you sure you want to delete the comment?" %>
-            )
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
-</div>

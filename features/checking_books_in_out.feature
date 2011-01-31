@@ -19,6 +19,7 @@ Feature: Checkin books in and out
     And the book "Ruby Best Practices" is marked as bought
     And the book "Ruby Best Practices" is reserved by "John Doe"
     When I go to the reservations page
+    Then show me the page
     And I follow "Check out"
     And I follow "Check in"
     Then I should see "You have now checked in the book"

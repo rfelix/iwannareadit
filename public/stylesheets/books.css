@@ -75,3 +75,87 @@
   float: right;
   padding-top: 17px;
 }
+
+
+/**** Show Book Info ****/
+
+#book_info {
+  margin-left: -5px;
+  border-bottom: 1px solid #272624;
+  margin-bottom: 20px;
+}
+
+#book_info .voting {
+  float: left;
+  text-align: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#book_data .name {
+  float: left;
+  font-size: 170%;
+  margin-bottom: 8px;
+}
+
+#book_data .authors {
+  font-size: 70%;
+}
+
+#book_info .status {
+  color: #AFAFAF;
+  font-size: 80%;
+  float: right;
+}
+
+#book_info .actions {
+  clear: both;
+  padding-top: 10px;
+  margin-left: 50px;
+}
+
+#book_info .footer {
+  padding-top: 20px;
+  padding-bottom: 3px;
+}
+
+.footer #reservations {
+  text-align: right;
+}
+
+#comments {
+}
+
+#comments .comment_item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #AFAFAF;
+}
+
+#comments .header {
+  color: #AFAFAF;
+  margin-bottom: 15px;
+}
+
+#comments .user {
+  font-style: italic;
+  color: black;
+}
+
+#comments .body {
+  margin-left: 20px;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+#comments .actions {
+  text-align: right;
+  font-size: 70%;
+}
+
+ul#reservations_list {
+  margin-top: -10px;
+  list-style-type: none;
+  text-align: right;
+  margin-right: 6px;
+}
+

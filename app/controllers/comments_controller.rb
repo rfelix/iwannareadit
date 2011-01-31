@@ -10,9 +10,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment added."
       redirect_to @book
     else
-      flash[:alert]  = "Error in comment."
-      # FIXME Yuck, this is terrible... how else can this be done?
-      session[:comment_obj] = @comment
+      flash[:alert]  = "Error: #{@comment.errors.full_messages.to_sentence}"
       redirect_to @book
     end
   end
@@ -35,6 +33,7 @@ class CommentsController < ApplicationController
   def destroy
     c = Comment.find(params[:id])
     c.destroy
+    c.book.reload
     flash[:notice] = "Comment has been deleted."
     redirect_to c.book
   end

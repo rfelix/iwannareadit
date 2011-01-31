@@ -29,11 +29,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @vote = Vote.for(@current_user, @book)
     @comment = Comment.new
-    # FIXME Yuck, this is terrible... how else can this be done?
-    if session[:comment_obj].present?
-      @comment = session[:comment_obj]
-      session[:comment_obj] = nil
-    end
   end
 
   def mark_bought

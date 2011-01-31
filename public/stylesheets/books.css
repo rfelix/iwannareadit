@@ -31,7 +31,7 @@
   margin-right: 5px;
 }
 
-.book_suggestion .actions {
+.book_suggestion .voting {
   margin-left: 10px;
   padding-top: 10px;
   text-align: center
@@ -48,4 +48,30 @@
   margin-top: 5px;
   display:block;
   float: left;
+}
+
+/**** Bought Books Listing ****/
+.in_front_box {
+  background-color: #3F3F3F;
+  color: white;
+}
+.in_front_box .text {
+  font-size: 60%;
+}
+
+.queued_box {
+  color: #B7A533;
+}
+
+.queued_box .text {
+  font-size: 60%;
+}
+
+.book_suggestion .info {
+  clear:right;
+}
+
+.book_suggestion .actions {
+  float: right;
+  padding-top: 17px;
 }

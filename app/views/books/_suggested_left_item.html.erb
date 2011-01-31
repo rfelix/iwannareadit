@@ -1,0 +1,14 @@
+<% # Expected partial parameters: book %>
+<%  vote = Vote.for(@current_user, book) %>
+
+<div class="voting">
+  <%= link_to_if(vote.can_increase?, "Up",   book_vote_up_path(book),   :class => "vote_up") { "Up"} %>
+  <br />
+  <%= link_to_if(vote.can_decrease?, "Down", book_vote_down_path(book), :class => "vote_down") { "Down" } %>
+</div>
+
+<div class="box vote_box ">
+  <%= vote_count = Vote.count_for book %>
+  <span class="text"><%= vote_count == 1 ? "vote" : "votes" %></span>
+</div>
+

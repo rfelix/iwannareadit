@@ -1,0 +1,20 @@
+<% # Expected partial parameters: book %>
+
+<div class="book_suggestion grid_12 alpha">
+
+  <%=
+    book_type = "suggested"
+    book_type = "bought" if book.is_bought?
+    render "#{book_type}_left_item", :book => book
+  %>
+
+  <div class="info">
+    <%= link_to book.name, book_path(book), :class => "name" %>
+    <br />
+    <span class="authors"><%= authors_names(book) %></span>
+  </div>
+
+  <%= render "#{book_type}_right_item", :book => book %>
+</div>
+
+<div class="clear"></div>

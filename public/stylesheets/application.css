@@ -118,12 +118,13 @@ a.button:hover {
   width: 40px;
   height: 40px;
   text-align: center;
-  padding: 5px;
+  padding: 8px 5px 5px 5px;
   vertical-align: center;
   font-size: 130%;
 }
 
 .box .text {
+  display: block;
   font-size: 65%;
 }
 

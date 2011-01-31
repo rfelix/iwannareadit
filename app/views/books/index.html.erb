@@ -1,10 +1,6 @@
 <div id="books_list" class="grid_12">
   <% @books.each_with_index do |book, index| %>
-    <%=
-      book_type = "suggested"
-      book_type = "bought" if book.is_bought?
-      render "#{book_type}_book", :book => book
-    %>
+    <%= render "book_item", :book => book  %>
   <% end %>
 </div>
 <div class="clear"></div>

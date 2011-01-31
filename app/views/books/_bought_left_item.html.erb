@@ -1,0 +1,17 @@
+<% # Expected partial parameters: book %>
+<%  vote = Vote.for(@current_user, book) %>
+
+<div class="box vote_box ">
+  <%= vote_count = Vote.count_for book %>
+  <span class="text"><%= vote_count == 1 ? "vote" : "votes" %></span>
+</div>
+
+<div class="box in_front_box ">
+  <%= vote_count = Reservation.in_front_count_for :book => book, :user => @current_user %>
+  <span class="text">in front</span>
+</div>
+
+<div class="box queued_box ">
+  <%= vote_count = book.reservations.count %>
+  <span class="text">queued</span>
+</div>

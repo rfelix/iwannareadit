@@ -7,8 +7,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="#main" class="container_12">
-    <% if signed_in? %>
+
+  <% if signed_in? %>
+    <div id="topbar_container">
       <div id="topbar" class=grid_12"">
         Hello, <%= current_user.name %>
 
@@ -19,9 +20,10 @@
           <%= link_to "Logout", logout_path %>
         </span>
       </div>
-      <div id="clear"></div>
-    <% end %>
+    </div>
+  <% end %>
 
+  <div id="#main" class="container_12">
     <div id="logo" class="grid_12">
       <h1><%= link_to "I Wanna Read It!", root_path %></h1>
     </div>

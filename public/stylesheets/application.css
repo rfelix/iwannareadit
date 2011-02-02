@@ -48,15 +48,28 @@ ul#navigation li a.current:active {
   margin-left: 9px;
 }
 
-#topbar {
-  padding: 2px;
-  margin: 3px;
+#topbar_container {
   background-color: #E0E0E0;
   font-size: 70%;
+  width: 100%;
+  margin-bottom: 3px;
+  padding: 2px;
+  text-align: center;
+}
+
+#topbar {
+  width: 920px;
+  margin: auto;
+  text-align: left;
 }
 
 #topbar span {
   float: right;
+}
+
+#logo {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #logo h1{

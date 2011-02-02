@@ -8,6 +8,7 @@ gem 'mysql2'
 gem 'omniauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 
+gem 'jquery-rails', '>= 0.2.6'
 
 # Google Apps omni-auth gave an error WEBrick::HTTPStatus::RequestURITooLarge
 # using Webrick, some say that this doesn't happen with Thin

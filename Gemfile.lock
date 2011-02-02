@@ -76,6 +76,9 @@ GEM
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
     i18n (0.5.0)
+    jquery-rails (0.2.6)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     json (1.4.6)
     json_pure (1.4.6)
     launchy (0.3.7)
@@ -197,6 +200,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   heroku
+  jquery-rails (>= 0.2.6)
   mysql2
   oa-openid
   omniauth
